@@ -27,7 +27,7 @@ class SolverGen:
         for j in range(i + 1):
             self.addSolver(solver, j, n, vs)
         return solver
-    def showAnswer(self, i, n):
+    def showSolutions(self, i, n):
         solver = self.makeSolver(i, n)
         vs = [Int(x) for x in 'abc']
         myVar, unKnownVar, otherVar = vs[i % 3], vs[(i + 2) % 3], vs[(i + 1) % 3]
@@ -53,5 +53,5 @@ for i in range(20):
         print(solver)
         print(solver.model())
     else:
-        SolverGen().showAnswer(i - 1, n)
+        SolverGen().showSolutions(i - 1, n)
         break
