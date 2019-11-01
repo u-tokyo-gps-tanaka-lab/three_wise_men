@@ -17,7 +17,8 @@ class SolverGen:
             xs1 = vs[:unknownIndex] + [tmpvs[j]] + vs[unknownIndex+1:]
             x1, y1, z1 = xs1[j:] + xs1[:j]
             solver.add(Or(And(y1 < x1, x1 < z1), And(z1 < x1, x1 < y1)))
-            self.addSolver(solver, i - 1, n, xs1)
+            for k in range(i):
+                self.addSolver(solver, k, n, xs1)
         return
     def makeSolver(self, i, n):
         solver = Solver()
